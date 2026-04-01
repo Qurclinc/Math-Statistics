@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  frontend:
+    container_name: matstat-front
+    build: ./frontend
+    ports:
+      - "10000:80"
+    networks:
+      - matstat-network
+
+  backend:
+    container_name: matstat-back
+    build: ./backend
+    networks:
+      - matstat-network
+
+networks:
+  matstat-network:
+    driver: bridge
