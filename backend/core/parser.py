@@ -61,7 +61,7 @@ class Parser():
             if any(row):
                 for j, value in enumerate(row):
                     if value is not None:
-                        value = str(value).replace("\n", " ")
+                        value = str(value).replace("\n", " ").replace("=", "")
                         if j < self.skip_cols:
                             if j == self.sign_col:
                                 self.signs.append(value) if i != 0 else self.header.append(value)
@@ -69,7 +69,7 @@ class Parser():
                         if i == 0:
                             self.header.append(value)
                         else:
-                            line.append(float(value))
+                            line.append(float(eval(value)))
                 if line:
                     self.data.append(line)
                     
