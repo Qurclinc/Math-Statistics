@@ -89,7 +89,7 @@ export default function Histogram({ title, data }: Props) {
             <Bar
               dataKey="count"
               fill="#7aa2f7"
-              barSize={100} // узкие столбцы, как в PyQt
+              barSize={50} // узкие столбцы, как в PyQt
               minPointSize={1} // даже нули видны
             />
 
