@@ -28,3 +28,8 @@ export async function getDescStats() {
   const res = await fetch(`${BASE}/describing_statistics`);
   return res.json();
 }
+
+export async function getNormalizedData() {
+  const res = await fetch(`${BASE}/normalized`);
+  return res.json();
+}

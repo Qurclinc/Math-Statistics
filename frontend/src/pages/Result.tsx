@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getParsed, getDescStats } from "../services/api";
+import { getParsed, getDescStats, getNormalizedData } from "../services/api";
 import Tabs from "../components/Tabs";
 import Table from "../components/Table";
 
@@ -15,6 +15,7 @@ export default function Result() {
   const tabApiMap: Record<number, () => Promise<any>> = {
     0: getParsed,
     1: getDescStats,
+    2: getNormalizedData,
   };
 
   // Функция подгрузки данных по вкладке
