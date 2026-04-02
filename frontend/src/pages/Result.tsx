@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getParsed, getDescStats, getNormalizedData } from "../services/api";
+import { getParsed, getDescStats, getNormalizedData, getPearsonCrit } from "../services/api";
 import Tabs from "../components/Tabs";
 import Table from "../components/Table";
 
@@ -16,6 +16,7 @@ export default function Result() {
     0: getParsed,
     1: getDescStats,
     2: getNormalizedData,
+    3: getPearsonCrit,
   };
 
   // Функция подгрузки данных по вкладке

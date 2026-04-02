@@ -4,7 +4,7 @@ interface TabsProps {
 }
 
 export default function Tabs({ active, onChange }: TabsProps) {
-  const tabs = ["Данные", "Описательная статистика", "Нормализованная матрица"];
+  const tabs = ["Данные", "Статистика", "Нормированные", "Нормальность"];
 
   return (
     <div className="mb-6 w-full">
