@@ -6,3 +6,5 @@ from .describing_statistics import (
     get_dispersions, get_standard_difference,
     get_variation_coeff, get_SE, get_MOE
 )
+
+from .normalization import normalize
