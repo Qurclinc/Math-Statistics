@@ -37,6 +37,7 @@ export default {
         neonGreen: "0 0 10px #9ece6a, 0 0 20px #9ece6a",
         neonRed: "0 0 10px #f7768e, 0 0 20px #f7768e",
         neonPurple: "0 0 10px #bb9af7, 0 0 20px #bb9af7",
+        neonMuted: "0 0 10px #565f89, 0 0 20px #565f89"
       },
 
       dropShadow: {

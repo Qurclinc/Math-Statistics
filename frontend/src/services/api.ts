@@ -33,3 +33,8 @@ export async function getNormalizedData() {
   const res = await fetch(`${BASE}/normalized`);
   return res.json();
 }
+
+export async function getPearsonCrit() {
+  const res = await fetch(`${BASE}/pearson`);
+  return res.json();
+}

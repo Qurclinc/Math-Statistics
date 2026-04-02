@@ -8,3 +8,4 @@ from .describing_statistics import (
 )
 
 from .normalization import normalize
+from .pearson import pearson_criterion
