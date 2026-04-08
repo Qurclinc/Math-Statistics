@@ -10,7 +10,7 @@ def pearson_criterion(data: List[List[int | float]]):
         
         k = int(1 + np.floor(3.322 * np.log10(n)))
         if k < 5: k = 5
-        
+
         counts, bins = np.histogram(line, bins=k)
         mean, std = line.mean(), line.std()
         

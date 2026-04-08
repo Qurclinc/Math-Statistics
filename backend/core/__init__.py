@@ -1,3 +1,4 @@
+from .utils import dataframe_to_list
 from .parser import parser
 
 from .describing_statistics import (
@@ -9,3 +10,4 @@ from .describing_statistics import (
 
 from .normalization import normalize
 from .pearson import pearson_criterion
+from .correlations import pairwise_correlations, partial_correlations
