@@ -41,11 +41,11 @@ def partial_correlations(
 ):
     df = pd.DataFrame({k: v for k, v in zip(header, data) })
     n, m = df.shape
-    cols = df.cols
+    cols = df.columns
     C = df.cov() + np.eye(m) * 10 ** -6
     P = np.linalg.inv(C)
     r_part = np.zeros((m, m))
-    t_obs_matrix = pd.DataFrame(np.zeros(m, m), index=cols, columns=cols)
+    t_obs_matrix = pd.DataFrame(np.zeros((m, m)), index=cols, columns=cols)
     
     df_degrees = n - m
     t_crit = stats.t.ppf(1 - alpha / 2, df_degrees)

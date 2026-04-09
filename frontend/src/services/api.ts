@@ -38,3 +38,13 @@ export async function getPearsonCrit() {
   const res = await fetch(`${BASE}/pearson`);
   return res.json();
 }
+
+export async function getPairwiseCorrelation() {
+  const res = await fetch(`${BASE}/pairwise_correlation`);
+  return res.json();
+}
+
+export async function getPartialCorrelation() {
+  const res = await fetch(`${BASE}/partial_correlation`);
+  return res.json();
+}

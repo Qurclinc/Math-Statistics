@@ -7,7 +7,7 @@ from core import (
 router = APIRouter()
 
 @router.get("/pairwise_correlation")
-async def get_normalized_data():
+async def get_pairwise_correlation():
     header = parser.header[1:]
     matrix, t_matrix, t_crit = pairwise_correlations(
         header,
@@ -15,7 +15,7 @@ async def get_normalized_data():
     )
     # print(matrix)
     return {
-        "header": header,
+        "header": [""] + header,
         "signs": header,
         "matrix": list(map(list, zip(*dataframe_to_list(matrix)))),
         "t_matrix": list(map(list, zip(*dataframe_to_list(t_matrix)))),
@@ -23,14 +23,15 @@ async def get_normalized_data():
     }
     
 @router.get("/partial_correlation")
-async def get_normalized_data():
+async def get_partial_correlation():
+    header = parser.header[1:]
     matrix, t_matrix, t_crit = partial_correlations(
-        parser.header[1:],
-        parser.data
+        header,
+        normalize(header, parser.data)
     )
     return {
-        "header": parser.header,
-        "signs": parser.header[1:],
+        "header": [""] + header,
+        "signs": header,
         "matrix": list(map(list, zip(*dataframe_to_list(matrix)))),
         "t_matrix": list(map(list, zip(*dataframe_to_list(t_matrix)))),
         "t_crit": round(t_crit, 3)

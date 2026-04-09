@@ -4,7 +4,13 @@ interface TabsProps {
 }
 
 export default function Tabs({ active, onChange }: TabsProps) {
-  const tabs = ["Данные", "Статистика", "Нормированные", "Нормальность"];
+  const tabs = [
+    "Данные",
+    "Статистика",
+    "Нормированные",
+    "Нормальность",
+    "Корреляция"
+  ];
 
   return (
     <div className="mb-6 w-full">
@@ -16,7 +22,7 @@ export default function Tabs({ active, onChange }: TabsProps) {
             className={`px-4 py-2 text-sm transition
               ${
                 active === i
-                  ? "text-purple border-b-2 border-primary shadow-neonPurple"
+                  ? "text-purple text-neon-purple border-b-2 border-primary"
                   : "text-muted hover:text-text"
               }`}
           >
