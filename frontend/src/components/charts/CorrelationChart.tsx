@@ -41,7 +41,7 @@ export default function CorrelationChart({ matrix, labels }: Props) {
 
     if (abs > 0.1)
       return {
-        stroke: "#9ca3af",
+        stroke: "#6b7280",
         width: 1,
         dash: "2,4"
       };
@@ -91,7 +91,7 @@ export default function CorrelationChart({ matrix, labels }: Props) {
               x={n.x}
               y={n.y - 18}
               textAnchor="middle"
-              className="text-xs fill-text"
+              className="text-xs fill-purple text-neon-purple"
             >
               {n.label}
             </text>
