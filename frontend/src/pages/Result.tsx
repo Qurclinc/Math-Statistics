@@ -3,13 +3,15 @@ import {
   getParsed,
   getDescStats,
   getNormalizedData,
-  getPearsonCrit
+  getPearsonCrit,
+  getRegression,
 } from "../services/api";
 
 import Tabs from "../components/Tabs";
 import Table from "../components/Table";
 import NormalityCharts from "../components/charts/NormalityCharts";
 import CorrelationView from "../components/CorrelationView";
+import RegressionView from "../components/RegressionView";
 
 export default function Result() {
   const [activeTab, setActiveTab] = useState(0);
@@ -22,12 +24,14 @@ export default function Result() {
 
   const [rawData, setRawData] = useState<Record<string, number[]>>({});
   const [loading, setLoading] = useState(false);
+  const [regressionData, setRegressionData] = useState<any>(null);
 
   const tabApiMap: Record<number, () => Promise<any>> = {
     0: getParsed,
     1: getDescStats,
     2: getNormalizedData,
-    3: getPearsonCrit
+    3: getPearsonCrit,
+    5: getRegression
   };
 
   async function loadData(tabIndex: number) {
@@ -38,6 +42,11 @@ export default function Result() {
     try {
       const apiCall = tabApiMap[tabIndex];
       const res = await apiCall();
+
+      if (tabIndex === 5) {
+        setRegressionData(res);
+        return;
+      }
 
       setTableData({
         headers: res.header || [],
@@ -66,6 +75,8 @@ export default function Result() {
 
       {activeTab === 4 ? (
         <CorrelationView />
+      ) : activeTab === 5 ? (
+        <RegressionView data={regressionData} />
       ) : loading ? (
         <div className="text-muted text-center w-full py-8">
           Loading...

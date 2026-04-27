@@ -48,3 +48,8 @@ export async function getPartialCorrelation() {
   const res = await fetch(`${BASE}/partial_correlation`);
   return res.json();
 }
+
+export async function getRegression() {
+  const res = await fetch(`${BASE}/regression`);
+  return res.json();
+}

@@ -9,7 +9,8 @@ export default function Tabs({ active, onChange }: TabsProps) {
     "Статистика",
     "Нормированные",
     "Нормальность",
-    "Корреляция"
+    "Корреляция",
+    "Регрессия"
   ];
 
   return (
