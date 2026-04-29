@@ -18,4 +18,4 @@ async def get_prediction(input: Dict[str, str]):
     except TypeError:
         raise HTTPException(400, "Вводите только числа")
     
-    return result
+    return {"reult": result}
