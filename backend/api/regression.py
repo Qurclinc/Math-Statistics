@@ -1,10 +1,9 @@
-import math
 from fastapi import APIRouter
 import numpy as np
 from scipy import stats
 
 from core import (
-    parser, get_regression, get_metrics, dataframe_to_list
+    parser, get_regression, get_metrics
 )
 
 router = APIRouter()
@@ -32,7 +31,6 @@ async def regression():
     p_values = [2 * (1 - stats.t.cdf(abs(t), n-k-1)) for t in t_stats]
     mape = np.mean(np.abs(residuals / Y)) * 100
     
-    # Явно преобразуем каждый элемент
     data = []
     for i in range(len(beta)):
         data.append([
@@ -40,7 +38,7 @@ async def regression():
             to_native(std_errors[i]),
             to_native(t_stats[i]),
             to_native(p_values[i]),
-            to_native(p_values[i] < 0.05)  # bool → нативный bool
+            to_native(p_values[i] < 0.05)
         ])
     
     return {

@@ -53,3 +53,20 @@ export async function getRegression() {
   const res = await fetch(`${BASE}/regression`);
   return res.json();
 }
+
+export async function getPrediction(inputData: Record<string, string>) {
+  const res = await fetch(`${BASE}/prediction`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(inputData)
+  });
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.detail || "Ошибка предсказания");
+  }
+
+  return res.json();
+}

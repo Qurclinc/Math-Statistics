@@ -12,3 +12,4 @@ from .normalization import normalize
 from .pearson import pearson_criterion
 from .correlations import pairwise_correlations, partial_correlations
 from .regression import get_regression, get_metrics
+from .prediction import make_prediction
