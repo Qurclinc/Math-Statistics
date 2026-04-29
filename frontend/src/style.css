@@ -22,3 +22,16 @@ html, body, #root {
 .text-neon-purple {
     text-shadow: 0 0 1px #bb9af7, 0 0 12px #bb9af7;
 }
+
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -12,6 +12,7 @@ import Table from "../components/Table";
 import NormalityCharts from "../components/charts/NormalityCharts";
 import CorrelationView from "../components/CorrelationView";
 import RegressionView from "../components/RegressionView";
+import PredictionView from "../components/PredictionView";
 
 export default function Result() {
   const [activeTab, setActiveTab] = useState(0);
@@ -31,7 +32,8 @@ export default function Result() {
     1: getDescStats,
     2: getNormalizedData,
     3: getPearsonCrit,
-    5: getRegression
+    5: getRegression,
+    6: getParsed
   };
 
   async function loadData(tabIndex: number) {
@@ -77,6 +79,8 @@ export default function Result() {
         <CorrelationView />
       ) : activeTab === 5 ? (
         <RegressionView data={regressionData} />
+      ) : activeTab === 6 ? (
+        <PredictionView headers={tableData.headers} />
       ) : loading ? (
         <div className="text-muted text-center w-full py-8">
           Loading...

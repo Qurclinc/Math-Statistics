@@ -54,18 +54,17 @@ export async function getRegression() {
   return res.json();
 }
 
-export async function getPrediction(inputData: Record<string, string>) {
+export async function getPrediction(input: Record<string, number>) {
   const res = await fetch(`${BASE}/prediction`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(inputData)
+    body: JSON.stringify(input)
   });
 
   if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.detail || "Ошибка предсказания");
+    throw new Error("Ошибка предсказания");
   }
 
   return res.json();
