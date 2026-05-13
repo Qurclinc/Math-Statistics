@@ -11,7 +11,7 @@ export default function Tabs({ active, onChange }: TabsProps) {
     "Нормальность",
     "Корреляция",
     "Регрессия",
-    "Предсказание"
+    "Прогнозирование"
   ];
 
   return (

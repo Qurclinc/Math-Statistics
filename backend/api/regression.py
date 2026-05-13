@@ -29,7 +29,8 @@ async def regression():
     std_errors = np.sqrt(np.diag(cov_beta))
     t_stats = beta / std_errors
     p_values = [2 * (1 - stats.t.cdf(abs(t), n-k-1)) for t in t_stats]
-    mape = np.mean(np.abs(residuals / Y)) * 100
+    mae = sum(np.abs(residuals)) / len(residuals)
+    mape = (mae / np.mean(Y)) * 100
     
     data = []
     for i in range(len(beta)):
@@ -42,8 +43,8 @@ async def regression():
         ])
     
     return {
-        "header": ["Переменная", "Коэффициент β", "Стандартная ошибка", "t-статистика", "p-уровень", "Значимость"],
-        "signs": header,
+        "header": ["Переменная", "Коэффициент b", "Стандартная ошибка", "t-статистика", "p-уровень", "Значимость"],
+        "signs": [header[-1]] + header[:-1],
         "data": data,
         "predicted_Y": to_native(predicted_Y),
         "actual_Y": to_native(Y),

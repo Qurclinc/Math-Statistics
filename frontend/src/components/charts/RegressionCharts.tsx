@@ -75,7 +75,7 @@ export default function RegressionCharts({
 
       <div className="bg-surface2 p-4 rounded-xl border border-border shadow-md">
         <p className="text-sm text-muted mb-2">
-          Реальные vs Предсказанные
+          Реальные vs Прогнозированные
         </p>
 
         <ScatterChart width={420} height={320}>
