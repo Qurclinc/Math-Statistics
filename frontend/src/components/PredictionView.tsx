@@ -80,7 +80,7 @@ export default function PredictionView({ headers }: Props) {
             : "bg-muted text-bg cursor-not-allowed"}
         `}
       >
-        {loading ? "Считаем..." : "Предсказать"}
+        {loading ? "Считаем..." : "Прогнозировать"}
       </button>
 
       {/* RESULT */}
